@@ -225,7 +225,7 @@ void readSerialLightingData() {
       // (More technical info at https://github.com/stepmania/stepmania/blob/master/src/arch/Lights/LightsDriver_SextetStream.md )
 
       
-      if (receivedData == '\n') { //If we got a newline (\n), we're done receiving new light states for this update
+      if (receivedData == '\n' || receivedData == '\r') { //If we got a newline (\n), we're done receiving new light states for this update
         lightBytePos = 0; //The next byte of lighting data will be the first byte
         
         //When we're done processing the serial data we have right now, write it out!
